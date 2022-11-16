@@ -1,0 +1,61 @@
+.geral{
+    background: gray;
+    display: flex;
+    color: black;
+}
+.img{
+    height: 100vh;
+    width: 50vw;
+    background: url("../../img/rectangleRoxo.png"),
+                url("../../img/glassWallpaper.png");
+    background-repeat: round;
+}
+.login{
+    height: 100vh;
+    width: 50vw;
+    background-color: #F5F8FA;
+}
+.divLogin{
+    margin: 5% 22.5%;    
+    height: 90vh;
+}
+.buttonVoltar{
+    margin-bottom: 20%;
+    color: #C0C8CD;
+}
+.tituloCadastrar{
+    margin-bottom: 5%;
+    color: #123952;
+    font-size: 24px;
+}
+.inputs{
+    margin-bottom: 5%;
+    label{
+        color: #A0ACB3;
+    }
+    input{
+        border: 0.1px solid #DCE2E5;
+        width: 27.5vw;
+        height: 6vh;
+        margin: 1% 0%;
+        border-radius: 8px;
+        padding: 0% 5%;
+    }
+}
+.buttons{
+    button{
+        border: transparent;
+        color: #F5F8FA !important;
+        font-size: 20px;
+        width: 27.5vw;
+        height: 8vh;
+        margin: 1% 0%;
+        border-radius: 8px;
+    }        
+}
+.button1{
+    background-color: #F178B6;
+}
+.button2{
+    background-color: #8A3C64;
+}
