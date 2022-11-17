@@ -26,12 +26,11 @@ export default function Login() {
                     </div>
                 </div>
                 <div className={Styles.esqueciSenha}>
-                    <a href="">Esqueci minha senha</a>                    
+                    <a href="/recuperarSenha"><p>Esqueci minha senha</p></a>                    
                 </div>
                 <div className={Styles.buttons}>
                     <a href="/listagem"><button className={Styles.button1}><p>Acessar plataforma</p></button></a>                    
-                    <a href="/cadastro"><button className={Styles.button2}>Cadastrar usuário</button></a>
-                    
+                    <a href="/cadastro"><button className={Styles.button2}><p>Cadastrar usuário</p></button></a>                    
                 </div>
             </div>
         </div>

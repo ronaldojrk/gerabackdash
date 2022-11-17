@@ -14,7 +14,7 @@ export default function Home() {
       <div className={Styles.conteudos}>
         <div className={Styles.conteudo1}>
           <div className={Styles.buttonLogin}>
-            <a href="/login">Login</a>
+            <a href="/login"><p>Login</p></a>
           </div>
         </div>
         <div className={Styles.conteudo2}>

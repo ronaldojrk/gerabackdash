@@ -2,6 +2,9 @@
     background: gray;
     display: flex;
     color: black;
+    h1,label,p{
+        font-family: 'Inter';
+    }
 }
 .img{
     height: 100vh;
@@ -52,6 +55,9 @@
         margin: 1% 0%;
         border-radius: 8px;
     }        
+    button:hover{
+        background-color: #ee4b9f !important; 
+    }
 }
 .button1{
     background-color: #F178B6;

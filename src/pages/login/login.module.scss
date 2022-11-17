@@ -2,6 +2,9 @@
     background: gray;
     display: flex;
     color: black;
+    h1,label,p{
+        font-family: 'Inter';
+    }
 }
 .img{
     height: 100vh;
@@ -55,6 +58,9 @@
     color: #A0ACB3;
     margin-bottom: 5%;
     text-align: right;
+    a:hover{
+        color: #b1bcc2;
+    }
 }
 .buttons{
     button{
@@ -65,7 +71,10 @@
         height: 8vh;
         margin: 1% 0%;
         border-radius: 8px;
-    }        
+    }            
+    button:hover{
+        background-color: #ee4b9f !important; 
+    }
 }
 .button1{
     background-color: #F178B6;

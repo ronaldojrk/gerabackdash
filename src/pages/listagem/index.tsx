@@ -14,15 +14,15 @@ export default function Listagem() {
       <div className={Styles.sidebar}>
         <div className={Styles.buttonsMenu}>
           <div><a href=""><GridViewIcon /></a><br /></div>
-          <div className={Styles.chat} ><a href=""><ChatBubbleOutlineIcon /></a><br /></div>
-          <div className={Styles.desligar} ><a href="/login"><PowerSettingsNewIcon /></a></div>
+          <div className={Styles.chat}><a href=""><ChatBubbleOutlineIcon /></a><br /></div>
+          <div className={Styles.desligar}><a href="/login"><PowerSettingsNewIcon /></a></div>
         </div>
       </div>
       <div className={Styles.conteudos}>
         <div className={Styles.conteudo1}>
           <div className={Styles.buttonCadastrar}>
             <h2>Formulários</h2>
-            <button>+ Criar formulário</button>
+            <button><h3>+ Criar formulário</h3></button>
           </div>
         </div>
         <div className={Styles.conteudo2}>
@@ -34,7 +34,7 @@ export default function Listagem() {
                 </div>
                 <div className={Styles.imgCard}>img</div>
                 <div className={Styles.textosCard}>
-                  <h4>teste 2</h4>
+                  <h3>teste 2</h3>
                   <p>13 respostas</p>
                 </div>
               
