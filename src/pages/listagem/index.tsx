@@ -27,22 +27,22 @@ export default function Listagem() {
         </div>
         <div className={Styles.conteudo2}>
           <div className={Styles.cards}>
-              <div className={Styles.card}>
-                <div className={Styles.buttonsCard}>
-                  <button><DriveFileRenameOutlineIcon /></button>
-                  <button><DeleteOutlineIcon /></button>
-                </div>
-                <div className={Styles.imgCard}>img</div>
-                <div className={Styles.textosCard}>
-                  <h3>teste 2</h3>
-                  <p>13 respostas</p>
-                </div>
-              
+            <div className={Styles.card}>
+              <div className={Styles.buttonsCard}>
+                <button><DriveFileRenameOutlineIcon /></button>
+                <button><DeleteOutlineIcon /></button>
               </div>
-              <div className={Styles.card}>b</div>
-              <div className={Styles.card}>c</div>
-              <div className={Styles.card}>d</div>
-          </div>          
+              <div className={Styles.imgCard}>img</div>
+              <div className={Styles.textosCard}>
+                <h3>teste 2</h3>
+                <p>13 respostas</p>
+              </div>
+
+            </div>
+            <div className={Styles.card}>b</div>
+            <div className={Styles.card}>c</div>
+            <div className={Styles.card}>d</div>
+          </div>
         </div>
       </div>
     </div>
