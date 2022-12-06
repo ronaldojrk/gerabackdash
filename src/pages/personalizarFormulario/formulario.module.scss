@@ -1,0 +1,70 @@
+.geral{
+    background: gray;
+    display: flex;
+    color: black;
+    h1,label,p{
+        font-family: 'Inter';
+    }
+}
+.img{
+    height: 100vh;
+    width: 50vw;
+    background: url("../../img/rectangleRoxo.png"),
+                url("../../img/glassWallpaper.png");
+    background-repeat: round;
+}
+.formulario{
+    height: 100vh;
+    width: 50vw;
+    background-color: #F5F8FA;
+}
+.divForm{
+    margin: 5% 22.5%;    
+    height: 90vh;
+}
+.buttonVoltar{
+    margin-bottom: 20%;
+    color: #C0C8CD;
+}
+.tituloCadastrar{
+    margin-top: 40%;
+    margin-bottom: 5%;
+    color: #123952;
+    font-size: 1.5em;
+}
+.inputs{
+    margin-bottom: 5%;
+    label{
+        color: #A0ACB3;
+    }
+    input{
+        border: 0.1px solid #DCE2E5;
+        width: 27.5vw;
+        height: 6vh;
+        margin: 1% 0%;
+        border-radius: 8px;
+        padding: 0% 5%;
+    }
+}
+.button{
+    text-align: center;
+
+    button{
+        border: transparent;
+        color: #F5F8FA !important;
+        font-size: 20px;
+        width: 14vw;
+        height: 6vh;
+        margin: 1% 0%;
+        border-radius: 8px;
+    }        
+    button:hover{
+        background-color: #ee4b9f !important; 
+    }
+}
+.button1{
+    background-color: #8A3C64;
+}
+.button2{
+    background-color: #F178B6;
+}

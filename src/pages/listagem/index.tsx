@@ -8,6 +8,7 @@ import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import { getAuth } from "firebase/auth";
 import { useContext, useEffect } from "react";
 import { AuthContext } from '../../context/AuthContext';
+import Router from 'next/router';
 
 export default function Listagem() {
 
@@ -41,14 +42,16 @@ export default function Listagem() {
         <div className={Styles.conteudo1}>
           <div className={Styles.buttonCadastrar}>
             <h2>Formulários</h2>
-            <button><h3>+ Criar formulário</h3></button>
+            <button><a href="/formulario">+ Criar formulário</a></button>
           </div>
         </div>
         <div className={Styles.conteudo2}>
           <div className={Styles.cards}>
             <div className={Styles.card}>
               <div className={Styles.buttonsCard}>
-                <button><DriveFileRenameOutlineIcon /></button>
+                <button onClick={() => { 
+                  Router.push('/personalizarFormulario/perfil/rM1UCVW4fHGVLQz6HvLI')
+                }}><DriveFileRenameOutlineIcon /></button>
                 <button><DeleteOutlineIcon /></button>
               </div>
               <div className={Styles.imgCard}>img</div>
