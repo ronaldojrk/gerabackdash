@@ -5,8 +5,27 @@ import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 import PowerSettingsNewIcon from '@mui/icons-material/PowerSettingsNew';
 import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import { getAuth } from "firebase/auth";
+import { useContext, useEffect } from "react";
+import { AuthContext } from '../../context/AuthContext';
 
 export default function Listagem() {
+
+  // const auth = getAuth();
+
+  //  console.log(auth.currentUser)
+
+  // auth.signOut()
+  // const teste = getAuth();
+  // console.log(teste)
+
+  //const { user, isAuthenticated, meTokenSigOut, meTokenSign } = useContext(AuthContext);
+
+
+  useEffect(() => {
+    // meTokenSign()
+    // billsNota(bills.id)
+  }, []);
 
   return (
 
