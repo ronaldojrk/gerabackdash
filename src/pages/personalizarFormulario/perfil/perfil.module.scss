@@ -1,0 +1,159 @@
+@font-face {
+    font-family: Dancing;
+    src: url('../../../fonts/DancingScript-Regular.ttf');
+ }
+@font-face {
+    font-family: GowunDodun;
+    src: url('../../../fonts/GowunDodum-Regular.ttf');
+}
+@font-face {
+    font-family: IMFell;
+    src: url('../../../fonts/IMFellDWPicaSC-Regular.ttf');
+}
+@font-face {
+    font-family: Inter;
+    src: url('../../../fonts/Inter-VariableFont_slnt\,wght.ttf');
+}
+@font-face {
+    font-family: Pacifico;
+    src: url('../../../fonts/Pacifico-Regular.ttf');
+}
+@font-face {
+    font-family: Risque;
+    src: url('../../../fonts/Risque-Regular.ttf');
+}
+@font-face {
+    font-family: Suwannaphum;
+    src: url('../../../fonts/Suwannaphum-Regular.ttf');
+}
+
+.geral{
+    background: gray;
+    display: flex;
+    color: black;
+    h1,label,p{
+        font-family: 'Inter';
+    }
+    text-align: center;
+}
+.personalizar{
+    height: 100vh;
+    width: 50vw;
+    background-color: #f199c7;
+    
+    h3{
+        margin: 5% 0%;
+    }
+    select{
+        width: 40%;
+        height: 30px;
+    }
+    option{
+        text-align: center;
+    }
+}
+.selectedFont{
+    margin-top: 10%;
+}
+.formulario{
+    height: 100vh;
+    width: 50vw;;
+    background-color: #F5F8FA;
+}
+.formularioView{
+    margin-top: 25%;
+}
+.titleQuestion{
+    margin-bottom: 2%;
+    color: #123952;
+    font-size: 24px;
+}
+.questions{
+    color: #DCE2E5;
+    font-size: 24px;
+}
+
+.fontPadraoTitle > label { font-family: Arial, Helvetica, sans-serif; }
+.fontTitle1 > label { font-family: Dancing; }  
+.fontTitle2 > label { font-family: GowunDodun; }  
+.fontTitle3 > label { font-family: IMFell; }
+.fontTitle4 > label { font-family: Inter; }  
+.fontTitle5 > label { font-family: Pacifico; }  
+.fontTitle6 > label { font-family: Risque; }
+.fontTitle7 > label { font-family: Suwannaphum; }
+
+.colorPadraoTitle { color: black }
+.colorTitle1 { color: rgb(220,20,60) }
+.colorTitle2 { color: rgb(240,230,140) }
+.colorTitle3 { color: rgb(138,43,226) }
+.colorTitle4 { color: rgb(0,255,127) }
+.colorTitle5 { color: rgb(218,165,32) }
+
+.fontPadrao > label { font-family: Arial, Helvetica, sans-serif; }
+.fontTitle1 > label { font-family: Dancing; }  
+.fontTitle2 > label { font-family: GowunDodun; }  
+.fontTitle3 > label { font-family: IMFell; }
+.fontTitle4 > label { font-family: Inter; }  
+.fontTitle5 > label { font-family: Pacifico; }  
+.fontTitle6 > label { font-family: Risque; }
+.fontTitle7 > label { font-family: Suwannaphum; }
+
+.colorPadrao { color: black }
+.color1 { color: rgb(220,20,60) }
+.color2 { color: rgb(240,230,140) }
+.color3 { color: rgb(138,43,226) }
+.color4 { color: rgb(0,255,127) }
+.color5 { color: rgb(218,165,32) }
+
+.backgroundPadrao { background-color: black }
+.background1 { background-color: rgb(123,104,238) }
+.background2 { background-color: rgb(221,160,221) }
+.background3 { background-color: rgb(233,150,122) }
+.background4 { background-color: rgb(255,218,185) }
+.background5 { background-color: rgb(230,230,250) }
+
+.buttons{
+    button{
+        border: transparent;
+        color: #F5F8FA !important;
+        font-size: 20px;
+        width: 20vw;
+        height: 4vh;
+        margin: 1% 0%;
+        border-radius: 8px;
+    }        
+}
+.button1{
+    button:hover{
+        background-color: #40a5e9 !important; 
+   }
+}
+.button1 > button{
+    background-color: #60b1e7;
+
+}
+
+.button2{
+    button:hover{
+        background-color: #e04e3a !important; 
+   }
+}
+.button2 > button{
+    background-color: #e06150;
+}
+
+.button3{
+    button:hover{
+        background-color: #33d114 !important; 
+   }
+}
+.button3 > button{
+    background-color: #4cce32
+}
+
+.background div{   
+    border: 1px solid black;
+    width: 50px;
+    height: 50px;
+    margin-left: 47.5%;
+}

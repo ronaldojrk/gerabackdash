@@ -152,6 +152,7 @@ export default function Listagem() {
             <h4>Bem vindo {user?.nome}</h4>
             <h2>Formulários</h2>
             <button onClick={() => {
+              Router.push("/formulario")
             }}><h3>+ Criar formulário</h3></button>
           </div>
         </div>
@@ -165,6 +166,7 @@ export default function Listagem() {
                   <div className={Styles.buttonsCard}>
                     <button onClick={() => {
                       //   Router.push()
+                      Router.push(`/personalizarFormulario/perfil/${form.id}`)
                     }}><DriveFileRenameOutlineIcon /></button>
                     <button><DeleteOutlineIcon /></button>
                   </div>
@@ -186,3 +188,6 @@ export default function Listagem() {
 
   )
 }
+
+
+
