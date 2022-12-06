@@ -98,6 +98,21 @@ export default function Cadastro() {
     const [cont, setCont] = useState(0);
     const [quest, setquest] = useState("");
 
+
+    // const options = [
+    //     { value: 0, text: '--Choose an option--' },
+    //     { value: 1, text: 'Apple 🍏' },
+    //     { value: 2, text: 'Banana 🍌' },
+    //     { value: 3, text: 'Kiwi 🥝' },
+    // ];
+
+    // const [selected, setSelected] = useState(options[0].value);
+
+    // const handleChange = event => {
+    //     console.log(event.target.value);
+    //     setSelected(event.target.value);
+    // };
+
     return (
         <div className={Styles.geral}>
             <ToastContainer />
@@ -143,23 +158,18 @@ export default function Cadastro() {
                         </div>
                     </form>
 
+                    {/* <select value={selected} onChange={handleChange}>
+                        {options.map(option => (
+                            <option key={option.value} value={option.value}>
+                                {option.text}
+                            </option>
+                        ))}
+                    </select> */}
 
+                    {/* <div>
+                        <h2 className={selected == 1 ? Styles.geral : selected == 2 ? Styles.geral2 : selected == 3 ? Styles.geral3 : Styles.geral}> teste</h2>
+                    </div> */}
 
-                    <div>
-
-                        <label>Enter your name: </label>
-                        <input
-                            type="text"
-                            value={quest}
-                            onChange={(e) => setquest(e.target.value)}
-                        />
-
-
-                        <button onClick={() => {
-                            handleForm()
-                            console.log(question)
-                        }} className={Styles.button2}><p>ProximaQuestion</p></button>
-                    </div>
 
                 </div>
             </div>

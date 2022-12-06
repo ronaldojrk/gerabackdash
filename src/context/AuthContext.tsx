@@ -9,6 +9,8 @@ import {
 import Router from "next/router";
 import { db, auth } from "../../firebase-config";
 
+import { setCookie, parseCookies, destroyCookie } from "nookies";
+
 
 type User = {
   email: string;
@@ -28,7 +30,9 @@ type AuthContextData = {
   user: User;
   isAuthenticated: boolean;
   //meToken(): Promise<boolean>;
-  meTokenSign(): Promise<void>;
+  setUserToken(uid: String): Promise<void>;
+  getUser(): Promise<void>;
+  //meTokenSign(uid: String): Promise<void>;
   meTokenSigOut(): Promise<void>;
 };
 
@@ -68,19 +72,47 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
 
   useEffect(() => {
-    //  meTokenSign()
+
     // const { "nextauth.token": token } = parseCookies();
 
     // if (token) {
-    //   me(token).then((response) => {});
+    //   meTokenSign(token).then((response) => {});
     // }
+    // // }
   }, []);
 
-  async function meTokenSign() {
+
+
+  async function setUserToken(uid: string) {
+    setCookie(undefined, "nextauth.token", uid, {
+      //  maxAge: 60 * 60 * 24 * 30,//30 days
+      maxAge: 60 * 60 * 24 * 1, //1 day
+      // maxAge: 60 * 30,//30 min
+      // maxAge: 60 * 1,//30 min
+      path: "/",
+    });
+
+
+
+  }
+
+  async function getUser() {
+    const { "nextauth.token": token } = parseCookies();
+
+    console.log(token)
+
+    if (token) {
+      await meTokenSign(token)
+    }
+
+
+  }
+
+  async function meTokenSign(uid: string) {
 
     try {
-
-      const uid = auth.currentUser.uid
+      console.log(uid)
+      //  const uid = auth.currentUser.uid
 
       if (uid != null || uid != "") {
         const docRef = doc(db, "user", uid);
@@ -97,13 +129,19 @@ export function AuthProvider({ children }: AuthProviderProps) {
         };
         setAuthenticate(true)
         setUser(userContext)
+        console.log("cheguei aqui")
+        console.log(userContext)
+
+        return userContext
       } else {
         setAuthenticate(false)
+        console.log("Falhou busca de dados")
       }
 
 
     } catch (error) {
       setAuthenticate(false)
+      console.log("tray")
     }
 
 
@@ -114,6 +152,10 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
     //console.log(docSnap);
 
+    destroyCookie(undefined, "nextauth.token");
+    // destroyCookie(undefined, "nextauth.refreshToken");
+
+    Router.push("/");
   }
 
 
@@ -122,7 +164,9 @@ export function AuthProvider({ children }: AuthProviderProps) {
       value={{
         isAuthenticated,
         user,
-        meTokenSign,
+        //  meTokenSign,
+        setUserToken,
+        getUser,
         //   meTokenTo,
         meTokenSigOut,
 

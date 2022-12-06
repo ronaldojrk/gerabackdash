@@ -8,20 +8,39 @@ import Router from "next/router";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { auth } from '../../../firebase-config';
+import { AuthContext } from '../../context/AuthContext';
+import { useContext, useEffect } from "react";
+import { setCookie } from 'nookies';
 
 export default function Login() {
+    //  const { user, isAuthenticated, meTokenSigOut, meTokenSign, setUserToken } = useContext(AuthContext);
 
+    async function setUserToken(uid: string) {
+        setCookie(undefined, "nextauth.token", uid, {
+            //  maxAge: 60 * 60 * 24 * 30,//30 days
+            maxAge: 60 * 60 * 24 * 1, //1 day
+            // maxAge: 60 * 30,//30 min
+            // maxAge: 60 * 1,//30 min
+            path: "/",
+        });
+
+
+
+    }
 
     async function handleSubmit(event) {
         event.preventDefault()
         signInWithEmailAndPassword(auth, event.target[0].value, event.target[1].value)
-            .then((userCredential) => {
+            .then(async (userCredential) => {
                 // Signed in
                 var user = userCredential.user;
                 console.log("teste2")
                 toast.success('Sucesso!', {
                     position: toast.POSITION.TOP_RIGHT
                 });
+
+
+                await setUserToken(user.uid)
 
 
                 Router.push(`/listagem`);
