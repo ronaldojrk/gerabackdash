@@ -12,6 +12,7 @@ import {
   where,
 } from "firebase/firestore";
 import { useContext, useEffect, useRef, useState } from "react";
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { GetServerSideProps } from 'next';
 import { db } from '../../../firebase-config';
 
@@ -93,98 +94,105 @@ export default function Form({ form, personalize }: FormProps) {
   return (
     <div className={Styles.geral}>
       <div className={Styles.img}></div>
-      <div className={
-        personalize.background == 1 ? Styles.background1
-          : personalize.background == 2 ? Styles.background2
-            : personalize.background == 3 ? Styles.background3
-              : personalize.background == 4 ? Styles.background4
-                : personalize.background == 5 ? Styles.background5
-                  : personalize.background == 6 ? Styles.background6
-                    : personalize.background == 7 ? Styles.background7
-                      : Styles.fontPadraoTitle}>
-        <div className={Styles.formularioView}>
-          <div className={Styles.titleQuestion}>
-            <div className={
-              personalize.font_title == 1 ? Styles.fontTitle1
-                : personalize.font_title == 2 ? Styles.fontTitle2
-                  : personalize.font_title == 3 ? Styles.fontTitle3
-                    : personalize.font_title == 4 ? Styles.fontTitle4
-                      : personalize.font_title == 5 ? Styles.fontTitle5
-                        : personalize.font_title == 6 ? Styles.fontTitle6
-                          : personalize.font_title == 7 ? Styles.fontTitle7
-                            : Styles.fontPadraoTitle}>
-              <label
-                className={
-                  personalize.color_title == 1 ? Styles.colorTitle1
-                    : personalize.color_title == 2 ? Styles.colorTitle2
-                      : personalize.color_title == 3 ? Styles.colorTitle3
-                        : personalize.color_title == 4 ? Styles.colorTitle4
-                          : personalize.color_title == 5 ? Styles.colorTitle5
-                            : Styles.colorPadraoTitle}
-                htmlFor="">{form.title}
-              </label>
-            </div>
-          </div>
-          <br />
-          <div className={Styles.questions}>
-            <div className={
-              personalize.font == 1 ? Styles.font1
-                : personalize.font == 2 ? Styles.font2
-                  : personalize.font == 3 ? Styles.font3
-                    : personalize.font == 4 ? Styles.font4
-                      : personalize.font == 5 ? Styles.font5
-                        : personalize.font == 6 ? Styles.font6
-                          : personalize.font == 7 ? Styles.font7
-                            : Styles.fontPadrao}>
-              <label
-                className={
-                  personalize.color == 1 ? Styles.color1
-                    : personalize.color == 2 ? Styles.color2
-                      : personalize.color == 3 ? Styles.color3
-                        : personalize.color == 4 ? Styles.color4
-                          : personalize.color == 5 ? Styles.color5
-                            : Styles.colorPadrao}
-                htmlFor="">
-                {form.question[cont]}
-              </label>
-            </div>
-
-            {cont != form.question.length ? (
-              <div className={Styles.inputs}>
-                <textarea value={quest}
-                  onChange={(e) => setquest(e.target.value)}></textarea>
-              </div>
-            ) : (
-              <>
-                <h2>Acabou as perguntas envie as resposta</h2>
-              </>
-            )}
-
-          </div>
-          <br />
-          <div className={Styles.buttons}>
-
-            {cont != form.question.length ? (
-
-              <div className={Styles.button1}>
-                <button
-                  onClick={() => {
-
-                    handleForm()
-                  }}>Proxima Pergunta </button>
-              </div>
-            ) : (
-              <div className={Styles.button3}>
-                <button onClick={() => {
-                  handleSubmit()
-                }}>Enviar Resposta</button>
-              </div>
-            )
-            }
-
-          </div>
-
+      <div className={Styles.formResposta}>
+        
+        <div className={
+          personalize.background == 1 ? Styles.background1
+            : personalize.background == 2 ? Styles.background2
+              : personalize.background == 3 ? Styles.background3
+                : personalize.background == 4 ? Styles.background4
+                  : personalize.background == 5 ? Styles.background5
+                    : personalize.background == 6 ? Styles.background6
+                      : personalize.background == 7 ? Styles.background7
+                        : Styles.fontPadraoTitle}>
+        <div className={Styles.buttonVoltar}>
+          <a href="../search"><ArrowBackIcon /></a>
         </div>
+          <div className={Styles.formularioView}>
+            <div className={Styles.titleQuestion}>
+              <div className={
+                personalize.font_title == 1 ? Styles.fontTitle1
+                  : personalize.font_title == 2 ? Styles.fontTitle2
+                    : personalize.font_title == 3 ? Styles.fontTitle3
+                      : personalize.font_title == 4 ? Styles.fontTitle4
+                        : personalize.font_title == 5 ? Styles.fontTitle5
+                          : personalize.font_title == 6 ? Styles.fontTitle6
+                            : personalize.font_title == 7 ? Styles.fontTitle7
+                              : Styles.fontPadraoTitle}>
+                <label
+                  className={
+                    personalize.color_title == 1 ? Styles.colorTitle1
+                      : personalize.color_title == 2 ? Styles.colorTitle2
+                        : personalize.color_title == 3 ? Styles.colorTitle3
+                          : personalize.color_title == 4 ? Styles.colorTitle4
+                            : personalize.color_title == 5 ? Styles.colorTitle5
+                              : Styles.colorPadraoTitle}
+                  htmlFor="">{form.title}
+                </label>
+              </div>
+            </div>
+            <br />
+            <div className={Styles.questions}>
+              <div className={
+                personalize.font == 1 ? Styles.font1
+                  : personalize.font == 2 ? Styles.font2
+                    : personalize.font == 3 ? Styles.font3
+                      : personalize.font == 4 ? Styles.font4
+                        : personalize.font == 5 ? Styles.font5
+                          : personalize.font == 6 ? Styles.font6
+                            : personalize.font == 7 ? Styles.font7
+                              : Styles.fontPadrao}>
+                <label
+                  className={
+                    personalize.color == 1 ? Styles.color1
+                      : personalize.color == 2 ? Styles.color2
+                        : personalize.color == 3 ? Styles.color3
+                          : personalize.color == 4 ? Styles.color4
+                            : personalize.color == 5 ? Styles.color5
+                              : Styles.colorPadrao}
+                  htmlFor="">
+                  {form.question[cont]}
+                </label>
+              </div>
+
+              {cont != form.question.length ? (
+                <div className={Styles.inputs}>
+                  <textarea value={quest}
+                    onChange={(e) => setquest(e.target.value)}></textarea>
+                </div>
+              ) : (
+                <>
+                  <h2>Acabou as perguntas envie as resposta</h2>
+                </>
+              )}
+
+            </div>
+            <br />
+            <div className={Styles.buttons}>
+
+              {cont != form.question.length ? (
+
+                <div className={Styles.button1}>
+                  <button
+                    onClick={() => {
+
+                      handleForm()
+                    }}>Proxima Pergunta </button>
+                </div>
+              ) : (
+                <div className={Styles.button3}>
+                  <button onClick={() => {
+                    handleSubmit()
+                  }}>Enviar Resposta</button>
+                </div>
+              )
+              }
+
+            </div>
+
+          </div>
+        </div>
+
       </div>
     </div>
   )

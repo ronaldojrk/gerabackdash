@@ -14,6 +14,7 @@ import {
 } from "firebase/firestore";
 import { useContext, useEffect, useRef, useState } from "react";
 import { GetServerSideProps } from 'next';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { db } from '../../../../firebase-config';
 import Router from 'next/router';
 import { destroyCookie, parseCookies } from 'nookies';
@@ -249,6 +250,9 @@ export default function Form({ form }: FormProps) {
         </div>
       </div>
       <div className={Styles.formulario}>
+        <div className={Styles.buttonVoltar}>
+          <a href="../../listagem"><ArrowBackIcon /></a>
+        </div>
         <div className={Styles.formularioView}>
           <ToastContainer />
           <div className={Styles.titleQuestion}>
@@ -314,14 +318,16 @@ export default function Form({ form }: FormProps) {
               <button
                 onClick={() => {
                   let count = cont + 1;
-                  setCont(count)
+                    setCont(count)           
                 }}>Next </button>
             </div>
             <div className={Styles.button2}>
               <button
                 onClick={() => {
-                  let count = cont - 1;
-                  setCont(count)
+                  if(cont > 0){
+                    let count = cont - 1;
+                    setCont(count)
+                  }
                 }}>Back</button>
             </div>
             <div className={Styles.button3}>
