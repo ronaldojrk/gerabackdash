@@ -99,7 +99,7 @@ export default function Cadastro() {
             <div className={Styles.login}>
                 <div className={Styles.divLogin}>
                     <div className={Styles.buttonVoltar}>
-                        <Link href="/login"><ArrowBackIcon /></Link>
+                        <Link href="/login"><p className={Styles.link}><ArrowBackIcon /></p></Link>
                     </div>
                     <div className={Styles.tituloCadastrar}>
                         <h1>Fazer Cadastro</h1>

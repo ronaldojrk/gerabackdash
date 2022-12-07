@@ -125,7 +125,7 @@ export default function Formulario() {
             <div className={Styles.formulario}>
                 <div className={Styles.divForm}>
                     <div className={Styles.buttonVoltar}>
-                        <Link href="/login"><ArrowBackIcon /></Link>
+                        <Link href="/login"><p className={Styles.link}><ArrowBackIcon /></p></Link>
                     </div>
                     <div className={Styles.tituloCadastrar}>
                         <h1>Cadastrar Form:</h1>

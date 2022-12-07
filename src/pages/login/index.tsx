@@ -63,7 +63,7 @@ export default function Login() {
                 <ToastContainer />
                 <div className={Styles.divLogin}>
                     <div className={Styles.buttonVoltar}>
-                        <Link href="../"><ArrowBackIcon /></Link>
+                        <Link href="../"><p className={Styles.link}><ArrowBackIcon /></p></Link>
                     </div>
                     <div className={Styles.tituloLogin}>
                         <h1>Fazer Login</h1>
@@ -91,7 +91,7 @@ export default function Login() {
                         }}><p>Cadastrar usuário</p></button>
                     </div>
                     <div className={Styles.esqueciSenha}>
-                        <Link href="/recuperarSenha"><p>Esqueci minha senha</p></Link>
+                        <Link href="/recuperarSenha"><p className={Styles.link}>Esqueci minha senha</p></Link>
                     </div>
                 </div>
 
