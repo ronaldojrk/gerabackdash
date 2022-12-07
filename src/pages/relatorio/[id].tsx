@@ -88,6 +88,9 @@ export default function Relatorio({ form, response }: FormProps) {
           <h2> Seu formulário teve {response?.res?.length} respostas! </h2>
           <br />
 
+          <h4> link : https://gerabackdash.vercel.app/respostaForm/{form.id}</h4>
+          <br />
+
           {response?.res?.length == 0 ? (<></>) : (
             <>
 
