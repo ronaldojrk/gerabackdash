@@ -176,6 +176,7 @@ export default function Listagem() {
                   <div className={Styles.imgCard}></div>
                   <div className={Styles.textosCard}>
                     <h3>{form.title}</h3>
+                    <p><b> Code:</b> {form.id}</p>
                     <p>{form.question.length} questões</p>
                     {/* <p>0 respostas</p> */}
                   </div>
