@@ -1,5 +1,6 @@
 
 import React from 'react'
+import Styles from './respostaForm.module.scss';
 import {
   addDoc,
   collection,
@@ -37,8 +38,96 @@ type Personalize = {
 }
 
 export default function Form({ form, personalize }: FormProps) {
+  const [cont, setCont] = useState(0);
+  console.log("personalize: ", personalize)
+  
+  return (
+    <div className={Styles.geral}>
+      <div className={Styles.img}></div>
+      <div className={
+            personalize.background == 1 ? Styles.background1
+              : personalize.background == 2 ? Styles.background2
+                : personalize.background == 3 ? Styles.background3
+                  : personalize.background == 4 ? Styles.background4
+                    : personalize.background == 5 ? Styles.background5
+                      : personalize.background == 6 ? Styles.background6
+                        : personalize.background == 7 ? Styles.background7
+                          : Styles.fontPadraoTitle}>
+        <div className={Styles.formularioView}>
+          <div className={Styles.titleQuestion}>
+            <div className={
+              personalize.font_title == 1 ? Styles.fontTitle1
+                : personalize.font_title == 2 ? Styles.fontTitle2
+                  : personalize.font_title == 3 ? Styles.fontTitle3
+                    : personalize.font_title == 4 ? Styles.fontTitle4
+                      : personalize.font_title == 5 ? Styles.fontTitle5
+                        : personalize.font_title == 6 ? Styles.fontTitle6
+                          : personalize.font_title == 7 ? Styles.fontTitle7
+                            : Styles.fontPadraoTitle}>
+              <label
+                className={
+                  personalize.color_title == 1 ? Styles.colorTitle1
+                    : personalize.color_title == 2 ? Styles.colorTitle2
+                      : personalize.color_title == 3 ? Styles.colorTitle3
+                        : personalize.color_title == 4 ? Styles.colorTitle4
+                          : personalize.color_title == 5 ? Styles.colorTitle5
+                            : Styles.colorPadraoTitle}
+                htmlFor="">{form.title}
+              </label>
+            </div>
+          </div>
+          <br />
+          <div className={Styles.questions}>
+            <div className={
+              personalize.font == 1 ? Styles.font1
+                : personalize.font == 2 ? Styles.font2
+                  : personalize.font == 3 ? Styles.font3
+                    : personalize.font == 4 ? Styles.font4
+                      : personalize.font == 5 ? Styles.font5
+                        : personalize.font == 6 ? Styles.font6
+                          : personalize.font == 7 ? Styles.font7
+                            : Styles.fontPadrao}>
+              <label
+                className={
+                  personalize.color == 1 ? Styles.color1
+                    : personalize.color == 2 ? Styles.color2
+                      : personalize.color == 3 ? Styles.color3
+                        : personalize.color == 4 ? Styles.color4
+                          : personalize.color == 5 ? Styles.color5
+                            : Styles.colorPadrao}
+                htmlFor="">
+                {form.question[cont]}
+              </label>
+            </div>
+            <div className={Styles.inputs}>
+              <textarea></textarea>
+            </div>
+          </div>
+          <br />
+          <div className={Styles.buttons}>
+            <div className={Styles.button1}>
+              <button
+                onClick={() => {
+                  let count = cont + 1;
+                  setCont(count)
+                }}>Proxima Pergunta </button>
+            </div>
+            {/* <div className={Styles.button2}>
+              <button
+                onClick={() => {
+                  let count = cont - 1;
+                  setCont(count)
+                }}>Back</button>
+            </div> */}
+            <div className={Styles.button3}>
+              <button>Enviar Resposta</button>
+            </div>
+          </div>
 
-
+        </div>
+      </div>
+    </div>
+  )
 
 }
 
@@ -65,11 +154,11 @@ export const getServerSideProps: GetServerSideProps = async ({
     title: docSnap.data().title ? docSnap.data().title : "",
     question: docSnap.data().question ? docSnap.data().question : [],
   };
-  const q = query(collection(db, "form"), where("form_id", "==", id));
+  const q = query(collection(db, "personalize"), where("form_id", "==", id));
 
   const querySnapshot = await getDocs(q);
   let personalize: Personalize
-  if (querySnapshot.docs[0].exists()) {
+  if (querySnapshot.docs[0]?.exists()) { 
     let docSnapShot = querySnapshot.docs[0]
     personalize = {
       id: docSnapShot.id,
