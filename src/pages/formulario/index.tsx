@@ -8,7 +8,10 @@ import {
     addDoc,
     collection,
     doc,
+    getDocs,
+    query,
     setDoc,
+    where,
 } from "firebase/firestore";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -62,6 +65,24 @@ export default function Formulario() {
 
     }
 
+
+    async function formsUsers() {
+
+        const q = query(collection(db, "form"), where("user_id", "==", userId));
+
+        const querySnapshot = await getDocs(q);
+
+        if (querySnapshot?.docs?.length >= 3) {
+            toast.info('O limite gratuito foi alcançado!!', {
+                position: toast.POSITION.TOP_RIGHT
+            });
+        } else {
+            finalizarForm()
+        }
+
+
+    }
+
     async function finalizarForm() {
         const formCollectionRef = collection(db, "form");
         const response = await addDoc(formCollectionRef, {
@@ -76,6 +97,9 @@ export default function Formulario() {
             toast.success('Sucesso!', {
                 position: toast.POSITION.TOP_RIGHT
             });
+
+
+
             Router.push(`/listagem`);
         } else {
 
@@ -130,7 +154,7 @@ export default function Formulario() {
                         </button>
                         <button className={Styles.button2}
                             onClick={() => {
-                                finalizarForm()
+                                formsUsers()
                                 //console.log(question)
                             }}
                         >
