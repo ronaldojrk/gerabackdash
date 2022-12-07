@@ -1,0 +1,117 @@
+.geral {
+    margin: 0 auto;
+    padding: 0;
+    background-color: grey;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+
+    h2,
+    h3,
+    p {
+        font-family: 'Inter';
+    }
+}
+
+.sidebar {
+    color: white;
+    background-color: #702049 !important;
+    width: 5%;
+    height: 100vh;
+}
+
+.buttonMenu {
+    position: relative;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+
+    a {
+        background-color: transparent;
+        border: none;
+        color: #F5F8FA;
+    }
+
+    a:hover {
+        color: #971d5c;
+    }
+}
+
+.conteudos {
+    width: 100%;
+}
+
+.conteudo1 {
+
+    width: 100%;
+    height: 40%;
+}
+
+.buttonLogin {
+    color: black;
+    text-align: right;
+    height: 10vh;
+    padding-top: 2%;
+    padding-right: 8%;
+
+    p {
+        font-family: 'Inter';
+    }
+
+    a:hover {
+        cursor: pointer;
+        color: #702049;
+    }
+}
+
+.conteudo2 {
+    background-color: #F5F8FA;
+    width: 100%;
+    height: 60%;
+    display: flex;
+}
+
+.titulo {
+    color: black;
+    width: 40vw;
+    height: 20vh;
+    margin-top: 10%;
+    margin-left: 5%;
+
+    h2 {
+        font-size: 48px;
+        color: #123952;
+    }
+
+    h3 {
+        font-size: 24px;
+        padding-top: 5%;
+    }
+}
+
+.sobre {
+    width: 35vw;
+    height: 45vh;
+    background: #EFE4E4;
+    text-align: center;
+    color: black;
+    margin-top: 5%;
+    margin-left: 10%;
+}
+
+.textosSobre {
+    position: relative;
+    top: 45%;
+    transform: translateY(-50%);
+
+    h3 {
+        font-size: 36px;
+        margin-bottom: 8%;
+    }
+
+    p {
+        font-size: 24px;
+        margin: 0% 8%;
+        text-align: justify;
+    }
+}

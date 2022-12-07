@@ -15,6 +15,9 @@ import { useContext, useEffect, useRef, useState } from "react";
 import { GetServerSideProps } from 'next';
 import { db } from '../../../firebase-config';
 
+import { ToastContainer, toast } from 'react-toastify';
+import Router from 'next/router';
+
 interface FormProps {
   form: Form;
   personalize: Personalize;
@@ -39,20 +42,66 @@ type Personalize = {
 
 export default function Form({ form, personalize }: FormProps) {
   const [cont, setCont] = useState(0);
-  console.log("personalize: ", personalize)
-  
+
+
+  const [question, setquestion] = useState<String[]>([]);
+  const [quest, setquest] = useState("");
+
+  function handleForm() {
+
+    let conster = cont + 1
+    setCont(conster)
+
+    let question1 = quest
+    let array = question
+
+    array.push(question1)
+    let newarray = array
+
+    setquestion(newarray)
+    setquest("")
+  }
+
+
+  async function handleSubmit() {
+    console.log("terminei de responder")
+    console.log(question)
+
+
+    const formCollectionRef = collection(db, "resposta");
+    const response = await addDoc(formCollectionRef, {
+      form_id: form.id,
+      respostas: question,
+
+    });
+
+    if (response != null) {
+
+
+      toast.success('Sucesso !', {
+        position: toast.POSITION.TOP_RIGHT
+      });
+      Router.push(`/search`);
+    } else {
+
+      toast.error('Falhou !', {
+        position: toast.POSITION.TOP_RIGHT
+      });
+    }
+  }
+
   return (
     <div className={Styles.geral}>
       <div className={Styles.img}></div>
       <div className={
-            personalize.background == 1 ? Styles.background1
-              : personalize.background == 2 ? Styles.background2
-                : personalize.background == 3 ? Styles.background3
-                  : personalize.background == 4 ? Styles.background4
-                    : personalize.background == 5 ? Styles.background5
-                      : personalize.background == 6 ? Styles.background6
-                        : personalize.background == 7 ? Styles.background7
-                          : Styles.fontPadraoTitle}>
+        personalize.background == 1 ? Styles.background1
+          : personalize.background == 2 ? Styles.background2
+            : personalize.background == 3 ? Styles.background3
+              : personalize.background == 4 ? Styles.background4
+                : personalize.background == 5 ? Styles.background5
+                  : personalize.background == 6 ? Styles.background6
+                    : personalize.background == 7 ? Styles.background7
+                      : Styles.fontPadraoTitle}>
         <div className={Styles.formularioView}>
           <div className={Styles.titleQuestion}>
             <div className={
@@ -99,29 +148,40 @@ export default function Form({ form, personalize }: FormProps) {
                 {form.question[cont]}
               </label>
             </div>
-            <div className={Styles.inputs}>
-              <textarea></textarea>
-            </div>
+
+            {cont != form.question.length ? (
+              <div className={Styles.inputs}>
+                <textarea value={quest}
+                  onChange={(e) => setquest(e.target.value)}></textarea>
+              </div>
+            ) : (
+              <>
+                <h2>Acabou as perguntas envie as resposta</h2>
+              </>
+            )}
+
           </div>
           <br />
           <div className={Styles.buttons}>
-            <div className={Styles.button1}>
-              <button
-                onClick={() => {
-                  let count = cont + 1;
-                  setCont(count)
-                }}>Proxima Pergunta </button>
-            </div>
-            {/* <div className={Styles.button2}>
-              <button
-                onClick={() => {
-                  let count = cont - 1;
-                  setCont(count)
-                }}>Back</button>
-            </div> */}
-            <div className={Styles.button3}>
-              <button>Enviar Resposta</button>
-            </div>
+
+            {cont != form.question.length ? (
+
+              <div className={Styles.button1}>
+                <button
+                  onClick={() => {
+
+                    handleForm()
+                  }}>Proxima Pergunta </button>
+              </div>
+            ) : (
+              <div className={Styles.button3}>
+                <button onClick={() => {
+                  handleSubmit()
+                }}>Enviar Resposta</button>
+              </div>
+            )
+            }
+
           </div>
 
         </div>
@@ -158,7 +218,7 @@ export const getServerSideProps: GetServerSideProps = async ({
 
   const querySnapshot = await getDocs(q);
   let personalize: Personalize
-  if (querySnapshot.docs[0]?.exists()) { 
+  if (querySnapshot.docs[0]?.exists()) {
     let docSnapShot = querySnapshot.docs[0]
     personalize = {
       id: docSnapShot.id,
@@ -173,11 +233,11 @@ export const getServerSideProps: GetServerSideProps = async ({
   } else {
     personalize = {
       id: "",
-      color_title: 0,
-      color: 0,
-      background: 0,
-      font: 0,
-      font_title: 0,
+      color_title: 1,
+      color: 1,
+      background: 1,
+      font: 1,
+      font_title: 1,
       form_id: "",
 
     }

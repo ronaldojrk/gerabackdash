@@ -19,10 +19,13 @@ export default function Home() {
         </div>
         <div className={Styles.conteudo2}>
           <div className={Styles.titulo}>
-              <h2>GeraBack</h2>
-              <h3>Crie seus formulários personalizados.</h3>
+            <h2>GeraBack</h2>
+            <h3>Crie seus formulários personalizados.</h3>
+
+
+
           </div>
-          <div className={Styles.sobre}>              
+          <div className={Styles.sobre}>
             <div className={Styles.textosSobre}>
               <div>
                 <h3>Quem somos</h3>
@@ -32,12 +35,12 @@ export default function Home() {
                   Nossa principal função é deixar
                   o seu formulário <b>mais bonito!</b>
                   Para isso, atraves da nossa aplicação
-                  é possivel personalizar as cores do seu 
-                  formulario! Deixando-o com a cara da sua 
+                  é possivel personalizar as cores do seu
+                  formulario! Deixando-o com a cara da sua
                   empresa ou produto.
                 </p>
               </div>
-            </div>              
+            </div>
           </div>
         </div>
       </div>
