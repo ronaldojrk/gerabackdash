@@ -1,5 +1,5 @@
 import React from 'react'
-import Styles from './listagem.module.scss';
+import Styles from './styles.module.scss';
 import GridViewIcon from '@mui/icons-material/GridView';
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 import PowerSettingsNewIcon from '@mui/icons-material/PowerSettingsNew';

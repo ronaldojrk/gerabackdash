@@ -1,5 +1,5 @@
 import React from 'react'
-import Styles from './login.module.scss';
+import Styles from './styles.module.scss';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { signInWithEmailAndPassword, getAuth } from "firebase/auth";
 

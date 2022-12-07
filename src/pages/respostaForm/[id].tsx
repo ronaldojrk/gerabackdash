@@ -1,6 +1,6 @@
 
 import React from 'react'
-import Styles from './respostaForm.module.scss';
+import Styles from './styles.module.scss';
 import {
   addDoc,
   collection,
@@ -95,7 +95,7 @@ export default function Form({ form, personalize }: FormProps) {
     <div className={Styles.geral}>
       <div className={Styles.img}></div>
       <div className={Styles.formResposta}>
-        
+
         <div className={
           personalize.background == 1 ? Styles.background1
             : personalize.background == 2 ? Styles.background2
@@ -105,9 +105,9 @@ export default function Form({ form, personalize }: FormProps) {
                     : personalize.background == 6 ? Styles.background6
                       : personalize.background == 7 ? Styles.background7
                         : Styles.fontPadraoTitle}>
-        <div className={Styles.buttonVoltar}>
-          <a href="../search"><ArrowBackIcon /></a>
-        </div>
+          <div className={Styles.buttonVoltar}>
+            <a href="../search"><ArrowBackIcon /></a>
+          </div>
           <div className={Styles.formularioView}>
             <div className={Styles.titleQuestion}>
               <div className={

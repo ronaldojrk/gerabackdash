@@ -1,5 +1,5 @@
 import React from 'react'
-import Styles from './recuperarSenha.module.scss';
+import Styles from './styles.module.scss';
 import { useContext, useEffect, useRef, useState } from "react";
 import { createUserWithEmailAndPassword, sendPasswordResetEmail } from "firebase/auth";
 import { auth } from '../../../firebase-config';
