@@ -1,5 +1,5 @@
 import React from 'react'
-import Styles from './cadastro.module.scss';
+import Styles from './styles.module.scss';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 

@@ -21,14 +21,14 @@ export const Sidebar = styled.div`
   }
 `;
 
-export const Div1 = styled.div `
+export const Div1 = styled.div`
   &&{
     background-color: #F3EBF3;
     height: 40%;
   }
 `
 
-export const Div2 = styled.div `
+export const Div2 = styled.div`
   &&{
     background-color: #F5F8FA;
     height: 60%;

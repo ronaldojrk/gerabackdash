@@ -1,5 +1,5 @@
 import React from 'react'
-import Styles from './relatorio.module.scss';
+import Styles from './styles.module.scss';
 
 import {
   addDoc,
