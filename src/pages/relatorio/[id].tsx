@@ -1,4 +1,5 @@
 import React from 'react'
+import Styles from './relatorio.module.scss';
 
 import {
   addDoc,
@@ -42,9 +43,7 @@ type Response = {
 
 export default function relatorio({ form, response }: FormProps) {
 
-  const [cont, setCont] = useState(2);
-
-  const [contResponse, setContResponse] = useState(1);
+  const [contResponse, setContResponse] = useState(0);
 
 
   // input firebase
@@ -77,53 +76,52 @@ export default function relatorio({ form, response }: FormProps) {
   }, []);
 
   return (
-    <>
+    <div className={Styles.geral}>
+      <div className={Styles.img}></div>
+      <div className={Styles.divRespostas}>
+        <div className={Styles.respostas}>
+          <h2>{form.title}</h2>
+          <br />
+          <h2> Seu formulário teve {response?.res?.length} respostas! </h2>
+          <br />
+          <h2> Você está na resposta numero {contResponse + 1}. </h2>
+          <br />
+          {form.question.map((quest, indice) => {
 
-      <h2>{form.title}</h2>
+            return (
 
-      <br />
+              <>
+                <h2 key={indice}>Question {indice} : {quest}</h2>
+                <h3>{response.res[contResponse]?.respostas[indice]}</h3>
+                <br />
+              </>
+            )
 
-      <h2> seu formulario teve {response?.res?.length} respostas </h2>
-      <br />
-      <br />
-      <h2> você está na resposta numero {contResponse + 1} </h2>
+          })}
+          <div className={Styles.buttons}>
+            <div>
+              <button className={Styles.button1}
+                onClick={() => {
+                  if(response.res.length - 1 > contResponse){
+                    let count = contResponse + 1;
+                    setContResponse(count)
+                  }
+                }}>Next </button>
+            </div>
+            <div>
+              <button className={Styles.button2}
+                onClick={() => {
+                  if(contResponse > 0){
+                    let count = contResponse - 1;
+                    setContResponse(count)
+                  }
+                }}>Back</button>
+            </div>
 
-
-      {form.question.map((quest, indice) => {
-
-        return (
-
-          <>
-            <h2 key={indice}>pegunta {indice} : {quest}</h2>
-            <h2>resposta {response.res[contResponse].respostas[indice]}</h2>
-          </>
-        )
-
-
-      })}
-
-
-
-
-      <div >
-        <button
-          onClick={() => {
-            let count = contResponse + 1;
-            setContResponse(count)
-          }}>Next </button>
+          </div>
+        </div>
       </div>
-      <div >
-        <button
-          onClick={() => {
-            let count = contResponse - 1;
-            setContResponse(count)
-          }}>Back</button>
-      </div>
-
-    </>
-
-
-
+    </div>
   )
 }
 
