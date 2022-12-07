@@ -168,13 +168,18 @@ export default function Listagem() {
                       //   Router.push()
                       Router.push(`/personalizarFormulario/perfil/${form.id}`)
                     }}><DriveFileRenameOutlineIcon /></button>
-                    <button><AssignmentIcon /></button>
+                    <button
+                      onClick={() => {
+                        Router.push(`/relatorio/${form.id}`)
+                      }}
+
+                    ><AssignmentIcon /></button>
                   </div>
                   <div className={Styles.imgCard}>img</div>
                   <div className={Styles.textosCard}>
                     <h3>{form.title}</h3>
                     <p>{form.question.length} questões</p>
-                    <p>0 respostas</p>
+                    {/* <p>0 respostas</p> */}
                   </div>
 
                 </div>

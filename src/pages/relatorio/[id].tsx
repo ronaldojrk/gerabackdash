@@ -80,45 +80,58 @@ export default function relatorio({ form, response }: FormProps) {
       <div className={Styles.img}></div>
       <div className={Styles.divRespostas}>
         <div className={Styles.respostas}>
-          <h2>{form.title}</h2>
           <br />
           <h2> Seu formulário teve {response?.res?.length} respostas! </h2>
           <br />
-          <h2> Você está na resposta numero {contResponse + 1}. </h2>
-          <br />
-          {form.question.map((quest, indice) => {
 
-            return (
+          {response?.res?.length == 0 ? (<></>) : (
+            <>
 
-              <>
-                <h2 key={indice}>Question {indice} : {quest}</h2>
-                <h3>{response.res[contResponse]?.respostas[indice]}</h3>
-                <br />
-              </>
-            )
+              <h2> Você está na resposta numero {contResponse + 1}. </h2>
+              <br />
+              <h2>Titulo : {form.title}</h2>
+              <br />
+              {form.question.map((quest, indice) => {
 
-          })}
-          <div className={Styles.buttons}>
-            <div>
-              <button className={Styles.button1}
-                onClick={() => {
-                  if(response.res.length - 1 > contResponse){
-                    let count = contResponse + 1;
-                    setContResponse(count)
-                  }
-                }}>Next </button>
-            </div>
-            <div>
-              <button className={Styles.button2}
-                onClick={() => {
-                  if(contResponse > 0){
-                    let count = contResponse - 1;
-                    setContResponse(count)
-                  }
-                }}>Back</button>
-            </div>
+                return (
 
-          </div>
+                  <>
+                    <h2 key={indice}>Question {indice + 1} : {quest}</h2>
+                    <h3>{response.res[contResponse]?.respostas[indice]}</h3>
+                    <br />
+                  </>
+                )
+
+              })}
+              <div className={Styles.buttons}>
+                <div>
+                  <button className={Styles.button1}
+                    onClick={() => {
+                      if (response.res.length - 1 > contResponse) {
+                        let count = contResponse + 1;
+                        setContResponse(count)
+                      }
+                    }}>Next </button>
+                </div>
+                <div>
+                  <button className={Styles.button2}
+                    onClick={() => {
+                      if (contResponse > 0) {
+                        let count = contResponse - 1;
+                        setContResponse(count)
+                      }
+                    }}>Back</button>
+                </div>
+
+              </div>
+            </>
+          )}
+
+
+
+
+
+
         </div>
       </div>
     </div>

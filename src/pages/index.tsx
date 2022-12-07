@@ -16,6 +16,9 @@ export default function Home() {
           <div className={Styles.buttonLogin}>
             <a href="/login"><p>Login</p></a>
           </div>
+          <div className={Styles.buttonLogin}>
+            <a href="/search"><p>search</p></a>
+          </div>
         </div>
         <div className={Styles.conteudo2}>
           <div className={Styles.titulo}>
