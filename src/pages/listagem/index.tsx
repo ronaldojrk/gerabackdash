@@ -40,7 +40,6 @@ export default function Listagem() {
   async function getUser() {
     const { "nextauth.token": token } = parseCookies();
 
-    console.log(token)
 
     if (token) {
       setAuthenticate(true)
@@ -69,8 +68,6 @@ export default function Listagem() {
 
       };
       setUser(userContext)
-      console.log(userContext)
-      console.log(uid)
       await formsUsers(uid)
     } catch (error) {
       signOut()
@@ -96,7 +93,6 @@ export default function Listagem() {
     querySnapshot.docs.forEach((docSnap) => {
       if (docSnap.exists()) {
 
-        console.log(docSnap.data)
         const forms: Form = {
           id: docSnap.id,
           title: docSnap.data().title ? docSnap.data().title : "",

@@ -91,14 +91,10 @@
         padding-top: 5%;
         padding-bottom: 15%;
     }
-
-    Link {
-        font-size: 20px;
-
-        p:hover {
-            color: #971d5c;
-        }
-    }
+}
+.link:hover{
+    color: #971d5c;
+    cursor: pointer;
 }
 
 .sobre {

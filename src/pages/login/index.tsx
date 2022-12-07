@@ -28,11 +28,11 @@ export default function Login() {
 
     async function handleSubmit(event) {
         event.preventDefault()
+
         signInWithEmailAndPassword(auth, event.target[0].value, event.target[1].value)
             .then(async (userCredential) => {
                 // Signed in
                 var user = userCredential.user;
-                console.log("teste2")
                 toast.success('Sucesso!', {
                     position: toast.POSITION.TOP_RIGHT
                 });
@@ -44,7 +44,6 @@ export default function Login() {
                 Router.push(`/listagem`);
             })
             .catch((error) => {
-                console.log("teste3")
                 var errorCode = error.code;
                 var errorMessage = error.message;
                 toast.error('Falhou erro no login!', {
@@ -53,7 +52,6 @@ export default function Login() {
 
             });
 
-        console.log("teste4")
     }
 
     return (
@@ -63,7 +61,7 @@ export default function Login() {
                 <ToastContainer />
                 <div className={Styles.divLogin}>
                     <div className={Styles.buttonVoltar}>
-                        <Link href="../"><ArrowBackIcon /></Link>
+                        <Link href="../"><p className={Styles.link}><ArrowBackIcon /></p></Link>
                     </div>
                     <div className={Styles.tituloLogin}>
                         <h1>Fazer Login</h1>
@@ -91,7 +89,7 @@ export default function Login() {
                         }}><p>Cadastrar usuário</p></button>
                     </div>
                     <div className={Styles.esqueciSenha}>
-                        <Link href="/recuperarSenha"><p>Esqueci minha senha</p></Link>
+                        <Link href="/recuperarSenha"><p className={Styles.link}>Esqueci minha senha</p></Link>
                     </div>
                 </div>
 

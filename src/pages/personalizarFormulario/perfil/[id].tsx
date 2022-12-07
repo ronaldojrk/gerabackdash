@@ -123,7 +123,6 @@ export default function Form({ form }: FormProps) {
   async function getUser() {
     const { "nextauth.token": token } = parseCookies();
 
-    console.log(token)
 
     if (token) {
       setUserId(token)
@@ -252,7 +251,7 @@ export default function Form({ form }: FormProps) {
       </div>
       <div className={Styles.formulario}>
         <div className={Styles.buttonVoltar}>
-          <Link href="../../listagem"><ArrowBackIcon /></Link>
+          <Link href="../../listagem"><p className={Styles.link}><ArrowBackIcon /></p></Link>
         </div>
         <div className={Styles.formularioView}>
           <ToastContainer />

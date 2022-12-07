@@ -9,20 +9,20 @@ export default function Home() {
     <div className={Styles.geral}>
       <div className={Styles.sidebar}>
         <div className={Styles.buttonMenu}>
-          <Link href=""><GridViewIcon /></Link>
+          <Link href=""><p className={Styles.link}><GridViewIcon /></p></Link>
         </div>
       </div>
       <div className={Styles.conteudos}>
         <div className={Styles.conteudo1}>
           <div className={Styles.buttonLogin}>
-            <Link className={Styles.link} href="/login"><p>Login</p></Link>
+            <Link href="/login"><p className={Styles.link}>Login</p></Link>
           </div>
         </div>
         <div className={Styles.conteudo2}>
           <div className={Styles.titulo}>
             <h2>GeraBack</h2>
             <h3>Crie seus formulários personalizados.</h3>
-            <Link href="/search"><p>Possui um link de formulario?</p></Link>
+            <Link href="/search"><p className={Styles.link}>Possui um link de formulario?</p></Link>
           </div>
           <div className={Styles.sobre}>
             <div className={Styles.textosSobre}>
