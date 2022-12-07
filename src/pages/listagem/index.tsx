@@ -4,12 +4,14 @@ import GridViewIcon from '@mui/icons-material/GridView';
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 import PowerSettingsNewIcon from '@mui/icons-material/PowerSettingsNew';
 import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline';
+import BallotIcon from '@mui/icons-material/Ballot';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import { useEffect, useState } from "react";
 import { destroyCookie, parseCookies } from 'nookies';
 import { collection, doc, getDoc, getDocs, query, where } from 'firebase/firestore';
 import { db } from '../../../firebase-config';
 import Router from 'next/router';
+import teste from '../../img/imgForm.png';
 
 
 type User = {
@@ -175,7 +177,7 @@ export default function Listagem() {
 
                     ><AssignmentIcon /></button>
                   </div>
-                  <div className={Styles.imgCard}>img</div>
+                  <div className={Styles.imgCard}></div>
                   <div className={Styles.textosCard}>
                     <h3>{form.title}</h3>
                     <p>{form.question.length} questões</p>

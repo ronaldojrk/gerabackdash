@@ -16,6 +16,7 @@ import { useContext, useEffect, useRef, useState } from "react";
 import { GetServerSideProps } from 'next';
 import Router from 'next/router';
 import { destroyCookie, parseCookies } from 'nookies';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { db } from '../../../firebase-config';
@@ -79,6 +80,9 @@ export default function relatorio({ form, response }: FormProps) {
     <div className={Styles.geral}>
       <div className={Styles.img}></div>
       <div className={Styles.divRespostas}>
+        <div className={Styles.buttonVoltar}>
+            <a href="../../listagem"><ArrowBackIcon /></a>
+        </div>
         <div className={Styles.respostas}>
           <br />
           <h2> Seu formulário teve {response?.res?.length} respostas! </h2>
@@ -103,18 +107,9 @@ export default function relatorio({ form, response }: FormProps) {
                 )
 
               })}
-              <div className={Styles.buttons}>
-                <div>
-                  <button className={Styles.button1}
-                    onClick={() => {
-                      if (response.res.length - 1 > contResponse) {
-                        let count = contResponse + 1;
-                        setContResponse(count)
-                      }
-                    }}>Next </button>
-                </div>
-                <div>
-                  <button className={Styles.button2}
+              <div className={Styles.buttons}>                
+                <div className={Styles.button2}>
+                  <button 
                     onClick={() => {
                       if (contResponse > 0) {
                         let count = contResponse - 1;
@@ -122,7 +117,15 @@ export default function relatorio({ form, response }: FormProps) {
                       }
                     }}>Back</button>
                 </div>
-
+                <div className={Styles.button1}>
+                  <button 
+                    onClick={() => {
+                      if (response.res.length - 1 > contResponse) {
+                        let count = contResponse + 1;
+                        setContResponse(count)
+                      }
+                    }}>Next </button>
+                </div>
               </div>
             </>
           )}

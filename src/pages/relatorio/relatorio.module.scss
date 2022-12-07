@@ -19,12 +19,15 @@
 .respostas{
     margin-top: 5%;
 }
-
-
-
-
+.buttonVoltar{
+    margin-top: 5%;
+    margin-right: 70%;
+    color: #C0C8CD;
+}
 .buttons{
-    text-align: center;
+    display: flex;
+    margin: 5% 20%;
+    justify-content: space-between;
 
     button{
         border: transparent;
@@ -35,13 +38,24 @@
         margin: 1% 0%;
         border-radius: 8px;
     }        
-    button:hover{
-        background-color: #ee4b9f !important; 
-    }
+
 }
+
 .button1{
-    background-color: #8A3C64;
+    button:hover{
+        background-color: #40a5e9 !important; 
+   }
 }
+.button1 > button{
+    background-color: #60b1e7;
+
+}
+
 .button2{
-    background-color: #F178B6;
+    button:hover{
+        background-color: #e04e3a !important; 
+   }
+}
+.button2 > button{
+    background-color: #e06150;
 }

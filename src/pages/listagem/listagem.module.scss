@@ -63,6 +63,12 @@
         color: #123952;
         font-size: 36px;
     }
+    h4{
+        color: #123952;
+        padding-top: 1%;
+        padding-left: 2%;
+        font-size: 16px;
+    }
     button{
         background-color: #51B853;
         border: #FFFFFF;
@@ -113,8 +119,15 @@
     }
 }
 .imgCard{
+    width: 60%;
     height: 15vh;
+    text-align: center;
+    padding-top: 10%;
+    margin-left: 20%;
+    background-image: url("../../img/imgFormulario.png");
+    background-repeat: round;
 }
+
 .textosCard{
     height: 10vh;
     padding-top: 5%;

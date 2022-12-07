@@ -15,18 +15,13 @@ export default function Home() {
         <div className={Styles.conteudo1}>
           <div className={Styles.buttonLogin}>
             <a href="/login"><p>Login</p></a>
-          </div>
-          <div className={Styles.buttonLogin}>
-            <a href="/search"><p>search</p></a>
-          </div>
+          </div>          
         </div>
         <div className={Styles.conteudo2}>
           <div className={Styles.titulo}>
             <h2>GeraBack</h2>
             <h3>Crie seus formulários personalizados.</h3>
-
-
-
+            <a href="/search"><p>Possui um link de formulario?</p></a>
           </div>
           <div className={Styles.sobre}>
             <div className={Styles.textosSobre}>
