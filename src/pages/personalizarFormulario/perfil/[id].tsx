@@ -123,7 +123,6 @@ export default function Form({ form }: FormProps) {
   async function getUser() {
     const { "nextauth.token": token } = parseCookies();
 
-    console.log(token)
 
     if (token) {
       setUserId(token)

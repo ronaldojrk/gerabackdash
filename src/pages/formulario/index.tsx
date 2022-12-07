@@ -55,7 +55,6 @@ export default function Formulario() {
     async function getUser() {
         const { "nextauth.token": token } = parseCookies();
 
-        console.log(token)
 
         if (token) {
             setUserId(token)
@@ -150,7 +149,6 @@ export default function Formulario() {
                             className={Styles.button1}
                             onClick={() => {
                                 handleForm()
-                                console.log(question)
                             }}><p>Proxima Questao</p>
                         </button>
                         <button className={Styles.button2}

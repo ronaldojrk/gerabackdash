@@ -28,11 +28,11 @@ export default function Login() {
 
     async function handleSubmit(event) {
         event.preventDefault()
+
         signInWithEmailAndPassword(auth, event.target[0].value, event.target[1].value)
             .then(async (userCredential) => {
                 // Signed in
                 var user = userCredential.user;
-                console.log("teste2")
                 toast.success('Sucesso!', {
                     position: toast.POSITION.TOP_RIGHT
                 });
@@ -44,7 +44,6 @@ export default function Login() {
                 Router.push(`/listagem`);
             })
             .catch((error) => {
-                console.log("teste3")
                 var errorCode = error.code;
                 var errorMessage = error.message;
                 toast.error('Falhou erro no login!', {
@@ -53,7 +52,6 @@ export default function Login() {
 
             });
 
-        console.log("teste4")
     }
 
     return (

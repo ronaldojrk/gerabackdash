@@ -99,7 +99,6 @@ export function AuthProvider({ children }: AuthProviderProps) {
   async function getUser() {
     const { "nextauth.token": token } = parseCookies();
 
-    console.log(token)
 
     if (token) {
       await meTokenSign(token)
@@ -111,7 +110,6 @@ export function AuthProvider({ children }: AuthProviderProps) {
   async function meTokenSign(uid: string) {
 
     try {
-      console.log(uid)
       //  const uid = auth.currentUser.uid
 
       if (uid != null || uid != "") {
@@ -129,19 +127,15 @@ export function AuthProvider({ children }: AuthProviderProps) {
         };
         setAuthenticate(true)
         setUser(userContext)
-        console.log("cheguei aqui")
-        console.log(userContext)
 
         return userContext
       } else {
         setAuthenticate(false)
-        console.log("Falhou busca de dados")
       }
 
 
     } catch (error) {
       setAuthenticate(false)
-      console.log("tray")
     }
 
 
@@ -150,7 +144,6 @@ export function AuthProvider({ children }: AuthProviderProps) {
     // auth.signOut()
     // Router.push(`/`);
 
-    //console.log(docSnap);
 
     destroyCookie(undefined, "nextauth.token");
     // destroyCookie(undefined, "nextauth.refreshToken");

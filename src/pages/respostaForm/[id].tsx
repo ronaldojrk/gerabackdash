@@ -65,9 +65,6 @@ export default function Form({ form, personalize }: FormProps) {
 
 
   async function handleSubmit() {
-    console.log("terminei de responder")
-    console.log(question)
-
 
     const formCollectionRef = collection(db, "resposta");
     const response = await addDoc(formCollectionRef, {
