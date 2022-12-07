@@ -16,6 +16,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import Router from "next/router";
 import { useContext, useEffect, useRef, useState } from "react";
+import Link from 'next/link';
 
 
 export default function Cadastro() {
@@ -98,7 +99,7 @@ export default function Cadastro() {
             <div className={Styles.login}>
                 <div className={Styles.divLogin}>
                     <div className={Styles.buttonVoltar}>
-                        <a href="/login"><ArrowBackIcon /></a>
+                        <Link href="/login"><ArrowBackIcon /></Link>
                     </div>
                     <div className={Styles.tituloCadastrar}>
                         <h1>Fazer Cadastro</h1>

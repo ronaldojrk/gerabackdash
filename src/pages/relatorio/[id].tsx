@@ -42,7 +42,7 @@ type Response = {
   respostas: String[];
 };
 
-export default function relatorio({ form, response }: FormProps) {
+export default function Relatorio({ form, response }: FormProps) {
 
   const [contResponse, setContResponse] = useState(0);
 
@@ -81,7 +81,7 @@ export default function relatorio({ form, response }: FormProps) {
       <div className={Styles.img}></div>
       <div className={Styles.divRespostas}>
         <div className={Styles.buttonVoltar}>
-            <a href="../../listagem"><ArrowBackIcon /></a>
+          <a href="../../listagem"><ArrowBackIcon /></a>
         </div>
         <div className={Styles.respostas}>
           <br />
@@ -107,9 +107,9 @@ export default function relatorio({ form, response }: FormProps) {
                 )
 
               })}
-              <div className={Styles.buttons}>                
+              <div className={Styles.buttons}>
                 <div className={Styles.button2}>
-                  <button 
+                  <button
                     onClick={() => {
                       if (contResponse > 0) {
                         let count = contResponse - 1;
@@ -118,7 +118,7 @@ export default function relatorio({ form, response }: FormProps) {
                     }}>Back</button>
                 </div>
                 <div className={Styles.button1}>
-                  <button 
+                  <button
                     onClick={() => {
                       if (response.res.length - 1 > contResponse) {
                         let count = contResponse + 1;

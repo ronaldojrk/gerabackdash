@@ -20,6 +20,7 @@ import Router from 'next/router';
 import { destroyCookie, parseCookies } from 'nookies';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Link from 'next/link';
 
 interface FormProps {
   form: Form;
@@ -251,7 +252,7 @@ export default function Form({ form }: FormProps) {
       </div>
       <div className={Styles.formulario}>
         <div className={Styles.buttonVoltar}>
-          <a href="../../listagem"><ArrowBackIcon /></a>
+          <Link href="../../listagem"><ArrowBackIcon /></Link>
         </div>
         <div className={Styles.formularioView}>
           <ToastContainer />
@@ -317,14 +318,17 @@ export default function Form({ form }: FormProps) {
             <div className={Styles.button1}>
               <button
                 onClick={() => {
-                  let count = cont + 1;
-                    setCont(count)           
+
+                  if (form.question?.length - 1 > cont) {
+                    let count = cont + 1;
+                    setCont(count)
+                  }
                 }}>Next </button>
             </div>
             <div className={Styles.button2}>
               <button
                 onClick={() => {
-                  if(cont > 0){
+                  if (cont > 0) {
                     let count = cont - 1;
                     setCont(count)
                   }

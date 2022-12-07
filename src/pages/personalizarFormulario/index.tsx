@@ -15,27 +15,28 @@ import 'react-toastify/dist/ReactToastify.css';
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import Router from "next/router";
 import { useContext, useEffect, useRef, useState } from "react";
+import Link from 'next/link';
 
 
 export default function Formulario() {
     const [question, setquestion] = useState<String[]>([]);
-    
+
     const [cont, setCont] = useState(0);
     const [quest, setquest] = useState("");
 
     function handleForm() {
 
-            let conster = cont + 1
-            setCont(conster)
-    
-            let question1 = quest    
-            let array = question
-        
-            array.push(question1)
-            let newarray = array
+        let conster = cont + 1
+        setCont(conster)
 
-            setquestion(newarray)        
-            setquest("")
+        let question1 = quest
+        let array = question
+
+        array.push(question1)
+        let newarray = array
+
+        setquestion(newarray)
+        setquest("")
     }
 
     interface Doc {
@@ -51,7 +52,7 @@ export default function Formulario() {
             <div className={Styles.formulario}>
                 <div className={Styles.divForm}>
                     <div className={Styles.buttonVoltar}>
-                        <a href="/login"><ArrowBackIcon /></a>
+                        <Link href="/login"><ArrowBackIcon /></Link>
                     </div>
                     <div className={Styles.tituloCadastrar}>
                         <h1>Cadastrar Perguntas:</h1>
@@ -65,7 +66,7 @@ export default function Formulario() {
                         />
                     </div>
                     <div className={Styles.button}>
-                        <button                         
+                        <button
                             className={Styles.button1}
                             onClick={() => {
                                 handleForm()

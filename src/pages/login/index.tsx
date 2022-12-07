@@ -11,6 +11,7 @@ import { auth } from '../../../firebase-config';
 import { AuthContext } from '../../context/AuthContext';
 import { useContext, useEffect } from "react";
 import { setCookie } from 'nookies';
+import Link from 'next/link';
 
 export default function Login() {
 
@@ -62,7 +63,7 @@ export default function Login() {
                 <ToastContainer />
                 <div className={Styles.divLogin}>
                     <div className={Styles.buttonVoltar}>
-                        <a href="../"><ArrowBackIcon /></a>
+                        <Link href="../"><ArrowBackIcon /></Link>
                     </div>
                     <div className={Styles.tituloLogin}>
                         <h1>Fazer Login</h1>
@@ -90,7 +91,7 @@ export default function Login() {
                         }}><p>Cadastrar usuário</p></button>
                     </div>
                     <div className={Styles.esqueciSenha}>
-                        <a href="/recuperarSenha"><p>Esqueci minha senha</p></a>
+                        <Link href="/recuperarSenha"><p>Esqueci minha senha</p></Link>
                     </div>
                 </div>
 

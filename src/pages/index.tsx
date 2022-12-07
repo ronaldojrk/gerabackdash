@@ -1,6 +1,7 @@
 import React from 'react'
 import Styles from './home.module.scss';
 import GridViewIcon from '@mui/icons-material/GridView';
+import Link from 'next/link'
 
 export default function Home() {
 
@@ -8,20 +9,20 @@ export default function Home() {
     <div className={Styles.geral}>
       <div className={Styles.sidebar}>
         <div className={Styles.buttonMenu}>
-          <a href=""><GridViewIcon /></a>
+          <Link href=""><GridViewIcon /></Link>
         </div>
       </div>
       <div className={Styles.conteudos}>
         <div className={Styles.conteudo1}>
           <div className={Styles.buttonLogin}>
-            <a href="/login"><p>Login</p></a>
-          </div>          
+            <Link className={Styles.link} href="/login"><p>Login</p></Link>
+          </div>
         </div>
         <div className={Styles.conteudo2}>
           <div className={Styles.titulo}>
             <h2>GeraBack</h2>
             <h3>Crie seus formulários personalizados.</h3>
-            <a href="/search"><p>Possui um link de formulario?</p></a>
+            <Link href="/search"><p>Possui um link de formulario?</p></Link>
           </div>
           <div className={Styles.sobre}>
             <div className={Styles.textosSobre}>
