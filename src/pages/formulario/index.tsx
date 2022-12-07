@@ -15,34 +15,83 @@ import 'react-toastify/dist/ReactToastify.css';
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import Router from "next/router";
 import { useContext, useEffect, useRef, useState } from "react";
+import { destroyCookie, parseCookies } from 'nookies';
 
 
 export default function Formulario() {
     const [question, setquestion] = useState<String[]>([]);
-    
+
     const [cont, setCont] = useState(0);
+    const [title, setTitle] = useState("");
     const [quest, setquest] = useState("");
 
     function handleForm() {
 
-            let conster = cont + 1
-            setCont(conster)
-    
-            let question1 = quest    
-            let array = question
-        
-            array.push(question1)
-            let newarray = array
+        let conster = cont + 1
+        setCont(conster)
 
-            setquestion(newarray)        
-            setquest("")
+        let question1 = quest
+        let array = question
+
+        array.push(question1)
+        let newarray = array
+
+        setquestion(newarray)
+        setquest("")
     }
 
-    interface Doc {
-        // id: string;
-        QuestionName: string;
+    const [userId, setUserId] = useState("");
+
+
+    async function signOut() {
+        destroyCookie(undefined, "nextauth.token");
+        Router.push("/login");
+    }
+
+    async function getUser() {
+        const { "nextauth.token": token } = parseCookies();
+
+        console.log(token)
+
+        if (token) {
+            setUserId(token)
+        } else {
+            signOut()
+        }
+
 
     }
+
+    async function finalizarForm() {
+        const formCollectionRef = collection(db, "form");
+        const response = await addDoc(formCollectionRef, {
+            title: title,
+            question: question,
+            user_id: userId
+        });
+
+        if (response != null) {
+
+
+            toast.success('Sucesso!', {
+                position: toast.POSITION.TOP_RIGHT
+            });
+            Router.push(`/listagem`);
+        } else {
+
+            toast.error('Falhou !', {
+                position: toast.POSITION.TOP_RIGHT
+            });
+        }
+
+
+    }
+
+
+    useEffect(() => {
+        getUser()
+
+    }, []);
 
     return (
         <div className={Styles.geral}>
@@ -54,9 +103,16 @@ export default function Formulario() {
                         <a href="/login"><ArrowBackIcon /></a>
                     </div>
                     <div className={Styles.tituloCadastrar}>
-                        <h1>Cadastrar Perguntas:</h1>
+                        <h1>Cadastrar Form:</h1>
                     </div>
                     <div className={Styles.inputs}>
+                        <label>Digite o titulo para o formulario: </label>
+                        <input
+                            type="text"
+                            value={title}
+                            onChange={(e) => setTitle(e.target.value)}
+                        />
+
                         <label>Digite sua pergunta numero {cont + 1}: </label>
                         <input
                             type="text"
@@ -65,14 +121,19 @@ export default function Formulario() {
                         />
                     </div>
                     <div className={Styles.button}>
-                        <button                         
+                        <button
                             className={Styles.button1}
                             onClick={() => {
                                 handleForm()
                                 console.log(question)
                             }}><p>Proxima Questao</p>
                         </button>
-                        <button className={Styles.button2}>
+                        <button className={Styles.button2}
+                            onClick={() => {
+                                finalizarForm()
+                                //console.log(question)
+                            }}
+                        >
                             <p>Finalizar Formulario</p>
                         </button>
                     </div>

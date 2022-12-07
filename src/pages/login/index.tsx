@@ -13,14 +13,11 @@ import { useContext, useEffect } from "react";
 import { setCookie } from 'nookies';
 
 export default function Login() {
-    //  const { user, isAuthenticated, meTokenSigOut, meTokenSign, setUserToken } = useContext(AuthContext);
 
     async function setUserToken(uid: string) {
         setCookie(undefined, "nextauth.token", uid, {
-            //  maxAge: 60 * 60 * 24 * 30,//30 days
             maxAge: 60 * 60 * 24 * 1, //1 day
-            // maxAge: 60 * 30,//30 min
-            // maxAge: 60 * 1,//30 min
+
             path: "/",
         });
 
@@ -44,7 +41,6 @@ export default function Login() {
 
 
                 Router.push(`/listagem`);
-                // ...
             })
             .catch((error) => {
                 console.log("teste3")

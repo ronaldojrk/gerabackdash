@@ -44,12 +44,9 @@ export default function Cadastro() {
 
     async function handleSubmit(event) {
         event.preventDefault()
-        // const usersCollectionRef = doc(db, "users");
         createUserWithEmailAndPassword(auth, event.target[1].value, event.target[2].value)
             .then(async (userCredential) => {
-                // Signed in
 
-                // console.log(userCredential.user.toJSON());
                 var user = userCredential.user;
 
                 const usersCollectionRef3 = doc(db, "user", user.uid);
@@ -79,10 +76,6 @@ export default function Cadastro() {
 
             });
 
-        // const usersCollectionRef2 = collection(db, "user");
-        // event.preventDefault()
-
-
 
 
     }
@@ -97,21 +90,6 @@ export default function Cadastro() {
 
     const [cont, setCont] = useState(0);
     const [quest, setquest] = useState("");
-
-
-    // const options = [
-    //     { value: 0, text: '--Choose an option--' },
-    //     { value: 1, text: 'Apple 🍏' },
-    //     { value: 2, text: 'Banana 🍌' },
-    //     { value: 3, text: 'Kiwi 🥝' },
-    // ];
-
-    // const [selected, setSelected] = useState(options[0].value);
-
-    // const handleChange = event => {
-    //     console.log(event.target.value);
-    //     setSelected(event.target.value);
-    // };
 
     return (
         <div className={Styles.geral}>
@@ -158,17 +136,6 @@ export default function Cadastro() {
                         </div>
                     </form>
 
-                    {/* <select value={selected} onChange={handleChange}>
-                        {options.map(option => (
-                            <option key={option.value} value={option.value}>
-                                {option.text}
-                            </option>
-                        ))}
-                    </select> */}
-
-                    {/* <div>
-                        <h2 className={selected == 1 ? Styles.geral : selected == 2 ? Styles.geral2 : selected == 3 ? Styles.geral3 : Styles.geral}> teste</h2>
-                    </div> */}
 
 
                 </div>
