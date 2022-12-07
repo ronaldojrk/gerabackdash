@@ -4,7 +4,7 @@ import GridViewIcon from '@mui/icons-material/GridView';
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 import PowerSettingsNewIcon from '@mui/icons-material/PowerSettingsNew';
 import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline';
-import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import AssignmentIcon from '@mui/icons-material/Assignment';
 import { useEffect, useState } from "react";
 import { destroyCookie, parseCookies } from 'nookies';
 import { collection, doc, getDoc, getDocs, query, where } from 'firebase/firestore';
@@ -168,7 +168,7 @@ export default function Listagem() {
                       //   Router.push()
                       Router.push(`/personalizarFormulario/perfil/${form.id}`)
                     }}><DriveFileRenameOutlineIcon /></button>
-                    <button><DeleteOutlineIcon /></button>
+                    <button><AssignmentIcon /></button>
                   </div>
                   <div className={Styles.imgCard}>img</div>
                   <div className={Styles.textosCard}>
